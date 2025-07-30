@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import { Routes, Route } from "react-router-dom";
-import Homeowner from "./Homeowner";
-import Trainer from "./Trainer"; // ✅ Make sure this matches the exact filename
+import Homeowner from "./Homeowner.jsx";
+import Trainer from "./Trainer.jsx";
 
 function App() {
-  const [mode, setMode] = useState("homeowner"); // "homeowner" or "trainer"
+  const [mode, setMode] = useState("homeowner");
 
   return (
     <div>
