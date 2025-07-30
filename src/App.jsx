@@ -1,24 +1,22 @@
 import React, { useState } from "react";
-import { Routes, Route, Link } from "react-router-dom";
-import Trainer from "./Trainer";
+import { Routes, Route } from "react-router-dom";
 import Homeowner from "./Homeowner";
+import Trainer from "./Trainer"; // ✅ Make sure this matches the exact filename
 
-export default function App() {
-  const [mode, setMode] = useState("");
+function App() {
+  const [mode, setMode] = useState("homeowner"); // "homeowner" or "trainer"
 
   return (
-    <div style={{ fontFamily: "sans-serif", padding: "2rem" }}>
-      <h1>AI Sales Trainer</h1>
-      {!mode && (
-        <div>
-          <p>Select a mode:</p>
-          <button onClick={() => setMode("trainer")}>Trainer Mode</button>
-          <button onClick={() => setMode("homeowner")}>Homeowner Mode</button>
-        </div>
-      )}
+    <div>
+      <header>
+        <h1>AI Sales Trainer</h1>
+        <button onClick={() => setMode("homeowner")}>Homeowner Mode</button>
+        <button onClick={() => setMode("trainer")}>Trainer Mode</button>
+      </header>
 
-      {mode === "trainer" && <Trainer />}
-      {mode === "homeowner" && <Homeowner />}
+      {mode === "homeowner" ? <Homeowner /> : <Trainer />}
     </div>
   );
 }
+
+export default App;
